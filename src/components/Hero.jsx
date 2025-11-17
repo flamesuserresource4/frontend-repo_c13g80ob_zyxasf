@@ -1,6 +1,7 @@
 import React from 'react'
 import Spline from '@splinetool/react-spline'
 import { motion } from 'framer-motion'
+import Portals from './Portals'
 
 export default function Hero() {
   return (
@@ -11,6 +12,9 @@ export default function Hero() {
 
       {/* Gradient overlay for readability */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/50 via-black/10 to-black/80" />
+
+      {/* Touch-to-travel portals layered on top */}
+      <Portals />
 
       <div className="relative z-10 h-full container mx-auto px-6 flex items-center">
         <div className="max-w-3xl">
@@ -34,10 +38,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.0, delay: 0.2 }}
-            className="mt-8 flex gap-4"
+            className="mt-8 flex items-center gap-4"
           >
             <a href="#services" className="px-6 py-3 rounded-full bg-white text-black font-medium hover:bg-white/90 transition">Explore Services</a>
             <a href="#projects" className="px-6 py-3 rounded-full border border-white/30 text-white hover:bg-white/10 transition">See Work</a>
+            <span className="ml-2 text-white/70 text-sm hidden md:inline">or tap a glowing portal</span>
           </motion.div>
         </div>
       </div>
